@@ -33,7 +33,8 @@ bpftool net attach xdp pinned /sys/fs/bpf/mini_upf dev $N3
 bpftool map update pinned /sys/fs/bpf/tc/globals/ingress_if key 0 0 0 0 value $IDX_N3 0 0 0
 bpftool map update pinned /sys/fs/bpf/tc/globals/teid_fwd key 01 00 00 00 \
   value $(printf "%02x %02x %02x %02x" $(echo $IDX_N6 | sed 's/.*/& 0 0 0/')) \
-  02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  aa bb cc dd ee ff 11 22 33 44 55 66 \
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 ```
 
 > Note: Update the `teid_fwd` value bytes to include proper `dst_mac`/`src_mac` (12 bytes) and optional next-hop. The above is illustrative only; prefer `bpftool map -f` with a hex blob.
