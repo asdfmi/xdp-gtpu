@@ -55,4 +55,4 @@ sudo ./send_gtpu veth-n3 $(cat /sys/class/net/veth-n6/address)
 
 ## Note
 
-This repo is largely unreviewed.
+The code in this repository is largely unreviewed.
